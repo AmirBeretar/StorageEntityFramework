@@ -42,14 +42,15 @@ public:
     virtual std::vector<TEntity*> getByCondition(SEF_Condition<TEntity>* cond_) = 0;
     virtual void update(TEntity* entity_) = 0;
     virtual void remove(SEF_ID id_) = 0;
-    virtual void insert(TEntity* entity_)
+    virtual void insert(TEntity* entity_);
+
+protected:
+    virtual SEF_ID generageID() = 0;
+    virtual void registerEntity(TEntity* entity_)
     {
         entity_->repository = this;
         entity_->id = generageID();
     }
-
-protected:
-    virtual SEF_ID generageID() = 0;
 
 protected:
     SEF_EntityFactory<TEntity>* factory;
