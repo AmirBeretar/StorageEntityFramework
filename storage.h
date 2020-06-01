@@ -42,7 +42,7 @@ public:
     virtual std::vector<TEntity*> getByCondition(SEF_Condition<TEntity>* cond_) = 0;
     virtual void update(TEntity* entity_) = 0;
     virtual void remove(SEF_ID id_) = 0;
-    virtual void insert(TEntity* entity_);
+    virtual void insert(TEntity* entity_) = 0;
 
 protected:
     virtual SEF_ID generageID() = 0;
